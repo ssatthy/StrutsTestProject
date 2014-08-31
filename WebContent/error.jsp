@@ -8,7 +8,7 @@
 <title>This is error page</title>
 </head>
 <body>
-Mmm, you just couldn't remember you own shits. do you?
+Mmm, you just don't remember you own **. do you?
 <div>
 <html:errors />
 </div>

@@ -7,6 +7,6 @@
 <title>This is home</title>
 </head>
 <body>
-Hi, you have logged in successfully! (ya thats a big deal for you but not for others.)
+Hi, you have logged in successfully! :)
 </body>
 </html>

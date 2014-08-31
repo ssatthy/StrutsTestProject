@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>StrutsTestProject</display-name>
+  
+  <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>
+                /WEB-INF/struts-config.xml
+            </param-value>
+       </init-param>
+     <init-param>
+        <param-name>chainConfig</param-name>
+        <param-value>org/apache/struts/tiles/chain-config.xml</param-value>
+    </init-param>
+       <load-on-startup>2</load-on-startup>
+    </servlet>
+    
+  <servlet>  
+ 	<servlet-name>ServletRedirector</servlet-name>  
+ 	<servlet-class>org.apache.cactus.server.ServletTestRedirector</servlet-class>  
+ </servlet> 
+
+ <servlet-mapping>  
+ 	<servlet-name>ServletRedirector</servlet-name>  
+ 	<url-pattern>/ServletRedirector</url-pattern>  
+ </servlet-mapping>
+    
+   <servlet-mapping>
+       <servlet-name>action</servlet-name>
+       <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+    
+  <welcome-file-list>
+    <welcome-file>/login.jsp</welcome-file>
+   
+  </welcome-file-list>
+</web-app>

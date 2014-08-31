@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <!-- ========== Form Bean Definitions ================================== -->
+    <form-beans>
+        <form-bean name="LoginForm" type="login.LoginForm"/>
+        <form-bean name="AddressFrom" type="usersetup.AddressForm" />
+        <form-bean name="CountryForm" type="country.CountryForm" />
+    </form-beans>
+    <!-- ========== Action Mapping Definitions ============================= -->
+    <action-mappings>
+    
+    	<action path="/LoginPage" type="org.apache.struts.actions.ForwardAction" parameter="common.login" />
+    	<action path="/AddressPage" type="org.apache.struts.actions.ForwardAction" parameter="setup.address" />
+    	<action path="/SearchPage" type="org.apache.struts.actions.ForwardAction" parameter="setup.country" />
+    	
+        <action name="LoginForm" path="/Login" type="login.LoginAction" scope="request" input="common.login">
+            <forward name="success" path="common.home" />
+            <forward name="error" path="common.login" />
+        </action>
+        
+        <action name="AddressFrom" path="/Address" type="usersetup.AddressAction" 
+        		scope="request" input="setup.address"  validate="true" >
+        	<forward name="success" path="common.home" />
+        	<forward name="error" path="common.error" />
+        </action>
+        
+        <action name="CountryForm" path="/Search" type="country.SearchCountryAction" 
+        		scope="request" input="setup.country"> 
+        	<forward name="country" path="setup.country.details"/>
+        	<forward name="error" path="common.error" />
+        
+        </action>
+        
+    </action-mappings>
+    
+    <message-resources parameter="MessageResources"/>
+    
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+		<set-property property="definitions-config" 
+					value="/WEB-INF/tiles-defs.xml"/>
+	</plug-in>
+	
+</struts-config>
